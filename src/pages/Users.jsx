@@ -4,6 +4,7 @@ import { users } from '../data/usersData'
 const Users = () => {
   const [state, setState] = useState(users)
   const [sortAsc, setSortAsc] = useState(true)
+  const [query, setQuery] = useState('')
 
   const sortByName = ()=>{
     const sorted = [...state].sort((a,b)=>
@@ -15,6 +16,13 @@ const Users = () => {
   return (
     <div className="overflow-x-auto p-4">
       <h2 className='font-bold text-2xl mb-4'>Users</h2>
+      <input 
+      type="text" 
+      value={query}
+      placeholder='Enter value'
+      onChange={(e)=>setQuery(e.target.value)}
+      className="border px-3 py-2 mb-4 w-full md:w-1/2 rounded"
+      />
       <table className='min-w-full bg-white border'>
         <thead>
           <tr className='bg-gray-200'>
