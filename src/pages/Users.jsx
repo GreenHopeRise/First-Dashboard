@@ -73,7 +73,7 @@ const Users = () => {
   // xml star here
 
   return (
-    <div className="overflow-x-auto p-6 bg-gray-50 rounded-lg shadow-md">
+    <div className="overflow-x-auto p-6 bg-gray-50 mt-3 rounded-lg shadow-md">
       <h2 className="font-bold text-3xl mb-6 text-gray-800">Users</h2>
       <input
         type="text"
