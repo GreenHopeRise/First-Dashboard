@@ -1,42 +1,52 @@
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  BarElement,
+  ArcElement,
+} from "chart.js";
 import React from "react";
-
+import { Bar, Line, Pie } from "react-chartjs-2";
+import {
+  productCategoryData,
+  productCategoryOptions,
+  userGrowthData,
+  userGrowthOptions,
+} from "../data/chartData";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
 const Dashboard = () => {
   return (
-    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {/* Card 1 */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold">Total Users</h2>
-        <p className="text-3xl font-bold mt-2">1,245</p>
+    <div className="p-6 bg-gray-200 min-h-screen m-3 rounded-xl">
+      <h1 className="text-3xl font-semibold mb-8 text-gray-800">Dashboard</h1>
+      {/* Bar Chart Container */}
+      <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 className="text-xl font-medium mb-4">Product Categories</h2>
+        <Bar data={productCategoryData} options={productCategoryOptions} />
       </div>
-
-      {/* Card 2 */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold">Total Products</h2>
-        <p className="text-3xl font-bold mt-2">532</p>
+      {/* Line Chart Container */}
+      <div className="bg-white rounded-lg shadow-md p-6 mb-8 ">
+        <h2 className="text-xl font-medium mb-4">User Growth</h2>
+        <Line className="" data={userGrowthData} options={userGrowthOptions} />
       </div>
-
-      {/* Card 3 */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold">Orders Today</h2>
-        <p className="text-3xl font-bold mt-2">128</p>
-      </div>
-
-      {/* Card 4 */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold">Revenue</h2>
-        <p className="text-3xl font-bold mt-2">$12,345</p>
-      </div>
-
-      {/* Card 5 */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold">Pending Tasks</h2>
-        <p className="text-3xl font-bold mt-2">42</p>
-      </div>
-
-      {/* Card 6 */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold">Feedbacks</h2>
-        <p className="text-3xl font-bold mt-2">17</p>
+      {/* Pie Chart Container */}
+      <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 className="text-xl font-medium mb-4">Product Categories Pie</h2>
+        <Pie data={productCategoryData} options={productCategoryOptions} />
       </div>
     </div>
   );
